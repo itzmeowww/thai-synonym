@@ -11,6 +11,7 @@ import {
   Icon,
   IconButton,
 } from "@chakra-ui/core";
+import Head from "next/head";
 import { motion } from "framer-motion";
 import { Component } from "react";
 import data from "./data/synonym.json";
@@ -21,14 +22,13 @@ const MotionFlex = motion.custom(Flex);
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", result: [] };
-
+    this.state = { result: [] };
     this.handleInput = this.handleInput.bind(this);
   }
   handleInput(e) {
     let found = false;
     let query = e.target.value;
-    this.setState({ value: e.target.value });
+
     data.forEach((list) => {
       list.forEach((word) => {
         if (!found && query == word) {
@@ -70,6 +70,14 @@ export default class Home extends Component {
     );
     return (
       <>
+        <Head>
+          <title>ค้นหาคำไวพจน์</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <meta name="description" content="Thanasan Kumdee personal website" />
+        </Head>
         <Box
           w="100vw"
           h="100vh"
@@ -124,7 +132,6 @@ export default class Home extends Component {
               fontFamily="thai"
               bg="gray.50"
               onChange={this.handleInput}
-              value={this.state.value}
               color="black"
             ></Input>
           </InputGroup>
