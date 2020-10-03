@@ -1,3 +1,7 @@
+## Thai Synonym
+
+Visit Here : https://thai-synonym.vercel.app/
+
 ## Getting Started
 
 First, run the development server:
