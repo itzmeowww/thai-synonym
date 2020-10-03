@@ -4,7 +4,7 @@ import "../styles/font.css";
 import React from "react";
 import { ThemeProvider, ColorModeProvider, CSSReset } from "@chakra-ui/core";
 
-import customTheme from "./theme";
+import customTheme from "../theme/theme";
 
 function MyApp({ Component, pageProps }) {
   return (
