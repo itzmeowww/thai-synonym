@@ -76,6 +76,10 @@ export default class Home extends Component {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+          <meta
+            name="google-site-verification"
+            content="6oKjH0Kg-1zb6tNcwvRzoFf-DmrFOxotFyrXH-lCcPE"
+          />
           <meta name="description" content="Thanasan Kumdee personal website" />
         </Head>
         <Box
