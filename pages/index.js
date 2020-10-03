@@ -97,6 +97,7 @@ export default class Home extends Component {
               animate={{ opacity: 1, y: 0 }}
               transform={{ duration: 10 }}
               fontFamily="thai"
+              color="black"
             >
               ไวพจน์
             </MotionText>
@@ -109,6 +110,7 @@ export default class Home extends Component {
               animate={{ opacity: 1, y: 0 }}
               transform={{ duration: 10 }}
               fontFamily="thai"
+              color="black"
             >
               Synonym finder for Thai language
             </MotionText>
@@ -123,6 +125,7 @@ export default class Home extends Component {
               bg="gray.50"
               onChange={this.handleInput}
               value={this.state.value}
+              color="black"
             ></Input>
           </InputGroup>
           <Flex align="center" justify="center" flexWrap="wrap">
