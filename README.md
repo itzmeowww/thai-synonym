@@ -12,7 +12,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Contributing
 
-> Everyone is welcomed
+> Everyone is welcome
 
 1. Fork this project
 2. Add Thai synonym to `pages/data/synonym.json`
