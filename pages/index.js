@@ -80,7 +80,7 @@ export default class Home extends Component {
         </Head>
         <Box
           w="100vw"
-          h="100vh"
+          minH="100vh"
           bg="green.100"
           align="center"
           justify="center"
@@ -126,6 +126,7 @@ export default class Home extends Component {
 
           <InputGroup w="80vw" maxW="500px" ml="auto" mr="auto" mb="20px">
             <Input
+              autoFocus
               variant="outline"
               placeholder="ค้นหาคำไวพจน์..."
               size="md"
