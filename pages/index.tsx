@@ -176,7 +176,7 @@ const Home = () => {
         <Flex
           ml="auto"
           mr="auto"
-          mb="30px"
+          pb="50px"
           align="center"
           justify="center"
           flexWrap="wrap"
