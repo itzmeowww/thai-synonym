@@ -7,7 +7,7 @@ const MotionText = motion.custom(Text);
 const MotionFlex = motion.custom(Flex);
 
 const Home = () => {
-  let [query, setQuery] = useState([]);
+  let [query, setQuery] = useState("");
   let [result, setResult] = useState([]);
   let [queryRes, setQueryRes] = useState([]);
 
@@ -55,7 +55,7 @@ const Home = () => {
             </Text>,
           ];
 
-    if (query.length == 0) setQueryRes(<></>);
+    if (query.length == 0) setQueryRes([<></>]);
     else setQueryRes(temp);
   }, [result]);
 
