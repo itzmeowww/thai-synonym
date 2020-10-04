@@ -7,16 +7,17 @@ const MotionText = motion.custom(Text);
 const MotionFlex = motion.custom(Flex);
 
 const Home = () => {
+  let [query, setQuery] = useState([]);
   let [result, setResult] = useState([]);
   let [queryRes, setQueryRes] = useState([]);
 
   const handleInput = (e) => {
     let found = false;
-    let query = e.target.value;
-
+    let value = e.target.value;
+    setQuery(value);
     data.forEach((list) => {
       list.forEach((word) => {
-        if (!found && query == word) {
+        if (!found && value == word) {
           setResult(list);
           found = true;
         }
@@ -53,62 +54,59 @@ const Home = () => {
               ไม่พบข้อมูล
             </Text>,
           ];
-    setQueryRes(temp);
-    console.log(result);
-    console.log(temp);
+
+    if (query.length == 0) setQueryRes(<></>);
+    else setQueryRes(temp);
   }, [result]);
 
   return (
     <>
       <Head>
-          <meta charset="utf-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charSet="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-          <meta name="description" content="Description" />
-          <meta name="keywords" content="Keywords" />
+        <meta name="description" content="Description" />
+        <meta name="keywords" content="Keywords" />
 
-          <title>ค้นหาคำไวพจน์</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta
-            name="google-site-verification"
-            content="6oKjH0Kg-1zb6tNcwvRzoFf-DmrFOxotFyrXH-lCcPE"
-          />
-          <meta
-            name="description"
-            content="Thai synonym finder | ค้นหาคำไวพจน์ภาษาไทย"
-          />
-          <link rel="shortcut icon" href="favicon.ico" />
-          <link rel="manifest" href="/manifest.json" />
-          <link
-            href="images/icons/icon-16x16.png"
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-          />
-          <link
-            href="images/icons/icon-32x32.png"
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-          />
-          <link
-            href="images/icons/icon-144x144.png"
-            rel="icon"
-            type="image/png"
-            sizes="144x144"
-          />
-          <link
-            href="images/icons/icon-512x512.png"
-            rel="icon"
-            type="image/png"
-            sizes="512x512"
-          />
+        <title>ค้นหาคำไวพจน์</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="google-site-verification"
+          content="6oKjH0Kg-1zb6tNcwvRzoFf-DmrFOxotFyrXH-lCcPE"
+        />
+        <meta
+          name="description"
+          content="Thai synonym finder | ค้นหาคำไวพจน์ภาษาไทย"
+        />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <link
+          href="images/icons/icon-16x16.png"
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+        />
+        <link
+          href="images/icons/icon-32x32.png"
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link
+          href="images/icons/icon-144x144.png"
+          rel="icon"
+          type="image/png"
+          sizes="144x144"
+        />
+        <link
+          href="images/icons/icon-512x512.png"
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+        />
 
-          <meta name="theme-color" content="#317EFB" />
-        </Head>
+        <meta name="theme-color" content="#317EFB" />
+      </Head>
       <Box
         w="100vw"
         minH="100vh"
