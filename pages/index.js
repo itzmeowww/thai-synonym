@@ -48,7 +48,6 @@ export default class Home extends Component {
 
   componentDidMount() {
     // const { colorMode, toggleColorMode } = useColorMode();
-    console.log(data);
   }
   render() {
     const queryRes = this.state.result ? (
@@ -73,6 +72,12 @@ export default class Home extends Component {
     return (
       <>
         <Head>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+          <meta name="description" content="Description" />
+          <meta name="keywords" content="Keywords" />
+
           <title>ค้นหาคำไวพจน์</title>
           <meta
             name="viewport"
@@ -82,7 +87,37 @@ export default class Home extends Component {
             name="google-site-verification"
             content="6oKjH0Kg-1zb6tNcwvRzoFf-DmrFOxotFyrXH-lCcPE"
           />
-          <meta name="description" content="Thanasan Kumdee personal website" />
+          <meta
+            name="description"
+            content="Thai synonym finder | ค้นหาคำไวพจน์ภาษาไทย"
+          />
+          <link rel="shortcut icon" href="favicon.ico" />
+          <link rel="manifest" href="/manifest.json" />
+          <link
+            href="images/icons/icon-16x16.png"
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+          />
+          <link
+            href="images/icons/icon-32x32.png"
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+          />
+          <link
+            href="images/icons/icon-144x144.png"
+            rel="icon"
+            type="image/png"
+            sizes="144x144"
+          />
+          <link
+            href="images/icons/icon-512x412.png"
+            rel="icon"
+            type="image/png"
+            sizes="512-512"
+          />
+          <meta name="theme-color" content="#317EFB" />
         </Head>
         <Box
           w="100vw"

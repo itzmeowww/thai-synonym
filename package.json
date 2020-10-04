@@ -1,7 +1,13 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "thai-synonym",
+  "version": "0.0.1",
+  "main": "pages/api/thai-synonym.js",
+  "homepage": "http://thai-synonym.vercel.app/",
+  "bugs": "https://github.com/itzmeowww/thai-synonym/issues",
+  "files": [
+    "pages/api/thai-synonym.js",
+    "pages/data/thai-synonym.json"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,7 +21,16 @@
     "emotion-theming": "^10.0.27",
     "framer-motion": "^2.7.7",
     "next": "9.5.3",
+    "next-pwa": "^3.1.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/itzmeowww/thai-synonym",
+    "type": "git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
