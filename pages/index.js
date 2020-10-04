@@ -10,6 +10,7 @@ import {
   Text,
   Icon,
   IconButton,
+  LightMode,
 } from "@chakra-ui/core";
 import Head from "next/head";
 import { motion } from "framer-motion";
@@ -44,6 +45,7 @@ export default class Home extends Component {
       this.setState({ result: ["ไม่พบข้อมูล"] });
     }
   }
+
   componentDidMount() {
     // const { colorMode, toggleColorMode } = useColorMode();
     console.log(data);
@@ -129,16 +131,18 @@ export default class Home extends Component {
           </MotionFlex>
 
           <InputGroup w="80vw" maxW="500px" ml="auto" mr="auto" mb="20px">
-            <Input
-              autoFocus
-              variant="outline"
-              placeholder="ค้นหาคำไวพจน์..."
-              size="md"
-              fontFamily="thai"
-              bg="gray.50"
-              onChange={this.handleInput}
-              color="black"
-            ></Input>
+            <LightMode>
+              <Input
+                autoFocus
+                variant="outline"
+                placeholder="ค้นหาคำไวพจน์..."
+                size="md"
+                fontFamily="thai"
+                bg="gray.50"
+                onChange={this.handleInput}
+                color="black"
+              ></Input>
+            </LightMode>
           </InputGroup>
           <Flex align="center" justify="center" flexWrap="wrap">
             {queryRes}
