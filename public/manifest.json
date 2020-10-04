@@ -1,8 +1,8 @@
 {
   "name": "Thai Synonym",
   "short_name": "Thai Synonym",
-  "theme_color": "#c6f6d5",
-  "background_color": "#c6f6d5",
+  "theme_color": "#E9D8FD",
+  "background_color": "#E9D8FD",
   "display": "standalone",
   "orientation": "",
   "scope": "/",

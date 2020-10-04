@@ -63,7 +63,7 @@ const Home = () => {
     <>
       <Head>
         <meta charSet="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
@@ -116,7 +116,7 @@ const Home = () => {
       <Box
         w="100vw"
         minH="100vh"
-        bg="green.100"
+        bg="purple.200"
         // align="center"
         // justify="center"
         fontFamily="thai"
