@@ -76,7 +76,7 @@ const Home = () => {
         />
         <meta
           name="description"
-          content="Thai synonym finder | ค้นหาคำไวพจน์ภาษาไทย"
+          content="Thai synonym browser | ค้นหาคำไวพจน์ภาษาไทย"
         />
         <link rel="shortcut icon" href="favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
@@ -106,6 +106,12 @@ const Home = () => {
         />
 
         <meta name="theme-color" content="#317EFB" />
+        <meta property="og:image" content="images/og_image.png" />
+        <meta property="og:title" content="Thai Synonym" />
+        <meta
+          property="og:description"
+          content="Thai synonym browser | ค้นหาคำไวพจน์ภาษาไทย"
+        />
       </Head>
       <Box
         w="100vw"
@@ -149,7 +155,7 @@ const Home = () => {
             fontFamily="thai"
             color="black"
           >
-            Synonym finder for Thai language
+            Thai synonym browser
           </MotionText>
         </MotionFlex>
 
