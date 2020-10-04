@@ -112,11 +112,12 @@ export default class Home extends Component {
             sizes="144x144"
           />
           <link
-            href="images/icons/icon-512x412.png"
+            href="images/icons/icon-512x512.png"
             rel="icon"
             type="image/png"
-            sizes="512-512"
+            sizes="512x512"
           />
+
           <meta name="theme-color" content="#317EFB" />
         </Head>
         <Box
