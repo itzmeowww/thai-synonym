@@ -173,7 +173,15 @@ const Home = () => {
             ></Input>
           </LightMode>
         </InputGroup>
-        <Flex align="center" justify="center" flexWrap="wrap">
+        <Flex
+          ml="auto"
+          mr="auto"
+          align="center"
+          justify="center"
+          flexWrap="wrap"
+          w="80vw"
+          maxW="500px"
+        >
           {queryRes}
         </Flex>
       </Box>
