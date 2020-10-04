@@ -4,7 +4,15 @@ Visit Here : https://thai-synonym.vercel.app/
 
 ## Getting Started
 
-First, run the development server:
+First, install packages:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
