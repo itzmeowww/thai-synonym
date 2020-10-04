@@ -1,6 +1,6 @@
 {
   "name": "thai-synonym",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "thai-synonym.js",
   "license": "MIT",
   "private": false,
@@ -8,7 +8,7 @@
   "bugs": "https://github.com/itzmeowww/thai-synonym/issues",
   "files": [
     "./thai-synonym.js",
-    "..pages/data/thai-synonym.json"
+    "../pages/data/thai-synonym.json"
   ],
   "repository": {
     "url": "https://github.com/itzmeowww/thai-synonym",
