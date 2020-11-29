@@ -1,4 +1,12 @@
-import { Box, Input, InputGroup, Flex, Text, LightMode } from "@chakra-ui/core";
+import {
+  Box,
+  Input,
+  InputGroup,
+  Flex,
+  Text,
+  LightMode,
+  useClipboard,
+} from "@chakra-ui/core";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { Component, useEffect, useState } from "react";
@@ -79,6 +87,7 @@ const Home = () => {
           content="Thai synonym browser | ค้นหาคำไวพจน์ภาษาไทย"
         />
         <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="apple-touch-icon" href="favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <link
           href="images/icons/icon-16x16.png"
