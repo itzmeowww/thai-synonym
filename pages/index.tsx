@@ -5,12 +5,17 @@ import {
   Flex,
   Text,
   LightMode,
+  Icon,
   useClipboard,
 } from "@chakra-ui/core";
 import Head from "next/head";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Component, useEffect, useState } from "react";
 import data from "./data/synonym.json";
+
+import { AiFillGithub } from "react-icons/ai";
+
 const MotionText = motion.custom(Text);
 const MotionFlex = motion.custom(Flex);
 
@@ -124,6 +129,7 @@ const Home = () => {
       </Head>
       <Box
         w="100vw"
+        maxW="100%"
         minH="100vh"
         bg="purple.200"
         // align="center"
@@ -195,6 +201,21 @@ const Home = () => {
           {queryRes}
         </Flex>
       </Box>
+      <Flex
+        w="100%"
+        justify="center"
+        align="center"
+        h="50px"
+        bg="purple.300"
+        fontFamily="thai"
+        fontWeight="bold"
+      >
+        <AiFillGithub size="25px" />
+        <Box w="5px" h="5px"></Box>
+        <Link href="https://github.com/itzmeowww/thai-synonym#contributing">
+          Contribute on Github
+        </Link>
+      </Flex>
     </>
   );
 };
