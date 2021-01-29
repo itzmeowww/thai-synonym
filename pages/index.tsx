@@ -209,6 +209,7 @@ const Home = () => {
         bg="purple.300"
         fontFamily="thai"
         fontWeight="bold"
+        color="black"
       >
         <AiFillGithub size="25px" />
         <Box w="5px" h="5px"></Box>
