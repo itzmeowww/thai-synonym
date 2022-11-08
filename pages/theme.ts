@@ -2,7 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   fonts: {
-    body: `"Noto Sans Thai", sans-serif`,
+    body: `"IBM Plex Sans Thai Looped", sans-serif`,
   },
 });
 

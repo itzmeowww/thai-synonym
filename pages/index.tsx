@@ -1,19 +1,30 @@
 
-import { Box, Center, Flex, Input, InputGroup, Square, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Input, InputGroup, ScaleFade, Square, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { useState } from "react";
-
+import { ChangeEvent, useState } from "react";
+import synonym from './data/synonym.json'
 
 export default function Home() {
-  let [query, setQuery] = useState("");
-  let [result, setResult] = useState([]);
-  let [queryRes, setQueryRes] = useState([]);
+  let [query, setQuery] = useState<string>("");
+  let [result, setResult] = useState<string[]>([]);
 
-  const handleInput = (e) => {
-    console.log(e)
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     let found = false;
-    let value = e.target.value;
+    const value = e.target.value;
     setQuery(value);
+    synonym.forEach((list) => {
+      list.forEach((word) => {
+        if (!found && value == word) {
+          setResult(list);
+          found = true;
+        }
+      });
+    });
+
+    if (found == false) {
+      if (value != "") setResult(["ไม่พบข้อมูล"]);
+      else setResult([])
+    }
 
   };
   return (
@@ -23,8 +34,6 @@ export default function Home() {
       minH="100vh"
       align="center"
       justify="begin"
-
-
       flexDir="column"
     >
       <Flex
@@ -37,37 +46,33 @@ export default function Home() {
         pt="30vh"
         flexDir="column"
       >
-        <Flex
-          ml="auto"
-          mr="auto"
-          align="center"
-          justify="center"
-          h="20vh"
-          flexDir="column"
-          mb="20px"
-        >
-          <Text
-            fontSize="6xl"
-            // initial="show"
-            ml="5px"
-            mr="5px"
-            // transform={{ duration: 10 }}
-
-            color="black"
+        <ScaleFade in={true}>
+          <Flex
+            ml="auto"
+            mr="auto"
+            align="center"
+            justify="center"
+            h="20vh"
+            flexDir="column"
+            mb="20px"
           >
-            ไวพจน์
-          </Text>
-          <Text
-            fontSize="lg"
-            color="black"
-          >
-            ค้นหาคำไวพจน์ภาษาไทย
-          </Text>
-        </Flex>
-
-        <InputGroup w="80vw" maxW="500px" ml="auto" mr="auto" mb="20px">
-
+            <Text
+              fontSize="6xl"
+              ml="5px"
+              mr="5px"
+              color="black"
+            >
+              ไวพจน์
+            </Text>
+            <Text
+              fontSize="lg"
+              color="black"
+            >
+              ค้นหาคำไวพจน์ภาษาไทย
+            </Text>
+          </Flex>
           <Input
+            w="80vw" maxW="500px" ml="auto" mr="auto" mb="20px"
             autoFocus
             variant="outline"
             placeholder="พิมพ์ข้อความที่นี่..."
@@ -76,8 +81,7 @@ export default function Home() {
             onChange={handleInput}
             color="black"
           />
-
-        </InputGroup>
+        </ScaleFade>
         <Flex
           ml="auto"
           mr="auto"
@@ -87,8 +91,11 @@ export default function Home() {
           flexWrap="wrap"
           w="80vw"
           maxW="500px"
+          gap={2}
         >
-          {query}
+          {result.map((x) => {
+            return <Text bg="white" px={3} py="0.5" rounded="md" cursor={"pointer"}>{x}</Text>
+          })}
         </Flex>
 
 
@@ -104,6 +111,6 @@ export default function Home() {
         </Text>
       </Flex>
 
-    </Flex>
+    </Flex >
   )
 }

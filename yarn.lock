@@ -1781,10 +1781,20 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
+"@fontsource/ibm-plex-sans-thai-looped@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/ibm-plex-sans-thai-looped/-/ibm-plex-sans-thai-looped-4.5.10.tgz#5d99cb0329ab9bdc8efbd1e5a119381244ff94c6"
+  integrity sha512-CSRow3vlxlDBNNQ9cEptUff+taRc8WDq3RIVDGTCT5yJjGkj5B92lrEtNZQISoosAPqg+dquref10I0y/ZQtlA==
+
 "@fontsource/noto-sans-thai@^4.5.12":
   version "4.5.12"
   resolved "https://registry.yarnpkg.com/@fontsource/noto-sans-thai/-/noto-sans-thai-4.5.12.tgz#d98439c43933c2445d33c8b6308bd7049d27e146"
   integrity sha512-9p/zA9iQT9G2mbaaffiMBrMp97aHdFJ+4en+zNwlNrWHsQSylfsZPeieY02fdZVE2L9WeTyhP55HUpSI3nNVqA==
+
+"@fontsource/trirong@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/trirong/-/trirong-4.5.10.tgz#c2c42aee1052a549f0d7b4a596f9d64f9598cf45"
+  integrity sha512-t8zwLPsXvIkmuEVSmGg6mXORDozTJ7Kvi+fWzD4YQQGYG9E6caunAsyHcgP3FssiMHwUPd5My4vGkp9IQmQBmg==
 
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
