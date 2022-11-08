@@ -1,61 +1,109 @@
-import styles from '../styles/Home.module.css'
+
+import { Box, Center, Flex, Input, InputGroup, Square, Text } from "@chakra-ui/react";
+import Link from "next/link";
+import { useState } from "react";
+
 
 export default function Home() {
+  let [query, setQuery] = useState("");
+  let [result, setResult] = useState([]);
+  let [queryRes, setQueryRes] = useState([]);
+
+  const handleInput = (e) => {
+    console.log(e)
+    let found = false;
+    let value = e.target.value;
+    setQuery(value);
+
+  };
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+    <Flex fontFamily="body"
+      w="100vw"
+      maxW="100%"
+      minH="100vh"
+      align="center"
+      justify="begin"
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      flexDir="column"
+    >
+      <Flex
+        w="100vw"
+        maxW="100%"
+        minH="100vh"
+        bg="purple.200"
+        align="center"
+        justify="begin"
+        pt="30vh"
+        flexDir="column"
+      >
+        <Flex
+          ml="auto"
+          mr="auto"
+          align="center"
+          justify="center"
+          h="20vh"
+          flexDir="column"
+          mb="20px"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+          <Text
+            fontSize="6xl"
+            // initial="show"
+            ml="5px"
+            mr="5px"
+            // transform={{ duration: 10 }}
+
+            color="black"
+          >
+            ไวพจน์
+          </Text>
+          <Text
+            fontSize="lg"
+            color="black"
+          >
+            ค้นหาคำไวพจน์ภาษาไทย
+          </Text>
+        </Flex>
+
+        <InputGroup w="80vw" maxW="500px" ml="auto" mr="auto" mb="20px">
+
+          <Input
+            autoFocus
+            variant="outline"
+            placeholder="พิมพ์ข้อความที่นี่..."
+            size="md"
+            bg="gray.50"
+            onChange={handleInput}
+            color="black"
+          />
+
+        </InputGroup>
+        <Flex
+          ml="auto"
+          mr="auto"
+          pb="50px"
+          align="center"
+          justify="center"
+          flexWrap="wrap"
+          w="80vw"
+          maxW="500px"
+        >
+          {query}
+        </Flex>
+
+
+      </Flex>
+      <Flex w="100vw"
+        height="12"
+        bg="purple.300"
+        maxW="100%" align="center" justify="center">
+        <Text fontFamily="body">
+          <Link href="https://github.com/itzmeowww/thai-synonym#contributing">
+            Contribute on Github
+          </Link>
+        </Text>
+      </Flex>
+
+    </Flex>
   )
 }
