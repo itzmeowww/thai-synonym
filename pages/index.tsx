@@ -1,13 +1,25 @@
 
-import { Box, Center, Flex, Input, InputGroup, ScaleFade, Square, Text } from "@chakra-ui/react";
+import { Center, flatten, Flex, Input, ScaleFade, Text, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 import { ChangeEvent, useState } from "react";
 import synonym from './data/synonym.json'
 
 export default function Home() {
-  let [query, setQuery] = useState<string>("");
-  let [result, setResult] = useState<string[]>([]);
+  const [query, setQuery] = useState<string>("");
+  const [result, setResult] = useState<string[]>([]);
 
+  const toast = useToast()
+
+  const copyText = (text: string) => {
+    if (window.navigator && window.navigator.clipboard) window.navigator.clipboard.writeText(text).then(() => {
+      toast({
+        title: 'คัดลอกแล้ว',
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
+    })
+  }
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     let found = false;
     const value = e.target.value;
@@ -72,7 +84,7 @@ export default function Home() {
             </Text>
           </Flex>
           <Input
-            w="80vw" maxW="500px" ml="auto" mr="auto" mb="20px"
+            w="80vw" maxW="500px"
             autoFocus
             variant="outline"
             placeholder="พิมพ์ข้อความที่นี่..."
@@ -81,6 +93,16 @@ export default function Home() {
             onChange={handleInput}
             color="black"
           />
+          <Center>
+            <Text
+              my={2}
+              mx="auto"
+              fontSize="sm"
+              color="gray.700"
+            >
+              สามารถกดที่ข้อความเพื่อทำการคัดลอกข้อความ
+            </Text>
+          </Center>
         </ScaleFade>
         <Flex
           ml="auto"
@@ -94,7 +116,9 @@ export default function Home() {
           gap={2}
         >
           {result.map((x) => {
-            return <Text bg="white" px={3} py="0.5" rounded="md" cursor={"pointer"}>{x}</Text>
+            return <Text bg="white" px={3} py="0.5" rounded="md" cursor={"pointer"} onClick={() => {
+              copyText(x)
+            }}>{x}</Text>
           })}
         </Flex>
 

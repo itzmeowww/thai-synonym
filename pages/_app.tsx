@@ -15,9 +15,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
-          <meta name="description" content="Description" />
-          <meta name="keywords" content="Keywords" />
-
           <title>ค้นหาคำไวพจน์</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta
