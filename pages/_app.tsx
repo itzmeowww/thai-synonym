@@ -6,7 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 // import '@fontsource/noto-sans-thai'
 import "@fontsource/ibm-plex-sans-thai-looped"
 
-import theme from './theme'
+import theme from '../theme'
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
