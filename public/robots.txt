@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://thai-synonym.vercel.app
+
+# Sitemaps
+Sitemap: https://thai-synonym.vercel.app/sitemap.xml
