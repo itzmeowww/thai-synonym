@@ -1,7 +1,8 @@
 
-import { Center, flatten, Flex, Input, ScaleFade, Text, useToast } from "@chakra-ui/react";
+import { Center, Flex, Input, ScaleFade, Text, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 import { ChangeEvent, useState } from "react";
+import { Nav } from "../components/Nav";
 import synonym from './data/synonym.json'
 
 export default function Home() {
@@ -47,7 +48,9 @@ export default function Home() {
       align="center"
       justify="begin"
       flexDir="column"
+
     >
+      <Nav />
       <Flex
         w="100vw"
         maxW="100%"
@@ -55,32 +58,24 @@ export default function Home() {
         bg="purple.200"
         align="center"
         justify="begin"
-        pt="30vh"
+        pt="25vh"
         flexDir="column"
       >
         <ScaleFade in={true}>
           <Flex
-            ml="auto"
-            mr="auto"
+            mx="auto"
             align="center"
             justify="center"
             h="20vh"
             flexDir="column"
-            mb="20px"
+
           >
+
             <Text
               fontSize="6xl"
-              ml="5px"
-              mr="5px"
               color="black"
             >
-              ไวพจน์
-            </Text>
-            <Text
-              fontSize="lg"
-              color="black"
-            >
-              ค้นหาคำไวพจน์ภาษาไทย
+              ค้นหาคำไวพจน์
             </Text>
           </Flex>
           <Input
@@ -98,9 +93,9 @@ export default function Home() {
               my={2}
               mx="auto"
               fontSize="sm"
-              color="gray.700"
+              color="blue.700"
             >
-              สามารถกดที่ข้อความเพื่อทำการคัดลอกข้อความ
+              กดที่ข้อความเพื่อทำการคัดลอกข้อความ
             </Text>
           </Center>
         </ScaleFade>

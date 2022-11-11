@@ -4,7 +4,9 @@ import { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 
 // import '@fontsource/noto-sans-thai'
-import "@fontsource/ibm-plex-sans-thai-looped"
+import "@fontsource/noto-sans-thai"
+
+// import "@fontsource/ibm-plex-sans-thai-looped"
 
 import theme from '../theme'
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -53,7 +55,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             sizes="512x512"
           />
 
-          <meta name="theme-color" content="#317EFB" />
+          <meta name="theme-color" content="#9F7AEA" />
           <meta property="og:image" content="images/og_image.png" />
           <meta property="og:title" content="Thai Synonym" />
           <meta
