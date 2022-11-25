@@ -48,7 +48,7 @@ export default function List() {
                         {synonym.map((gr) => {
                             return <>
                                 <Tr>
-                                    <Td>{gr[0]}</Td>
+                                    <Td w="6">{gr[0]}</Td>
                                     <Td as={Flex} gap={2} flexWrap={"wrap"}>
                                         {gr.map((x) => {
                                             return <Text onClick={() => {
