@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const Nav = () => {
     return (
-        <Flex w="100%" h="14" bg="purple.400" shadow="md" zIndex="10" pos="fixed">
+        <Flex w="100%" h="14" bg="purple.400" shadow="md" zIndex="10" pos="fixed" top={0}>
             <Flex px={4} maxW="4xl" w="100%" align={"center"} justify="space-between" mx="auto" fontSize="lg" color="white">
                 <Link href="/">
                     <Flex align="center" gap="3">
@@ -13,7 +13,10 @@ export const Nav = () => {
                         </Text>
                     </Flex>
                 </Link>
-                <Link href="/list" >ตารางคำไวพจน์</Link>
+                <Flex gap={10}>
+
+                    <Link href="/list" >ตารางคำไวพจน์</Link>
+                </Flex>
             </Flex>
         </Flex >
     )

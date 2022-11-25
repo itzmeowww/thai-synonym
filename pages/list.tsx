@@ -1,7 +1,12 @@
 
 import {
     Flex, Text, useToast,
-    Divider
+    Table,
+    Tbody,
+    Tr,
+    Td,
+    TableCaption,
+    TableContainer,
 } from "@chakra-ui/react";
 import { Nav } from "../components/Nav";
 
@@ -32,25 +37,35 @@ export default function List() {
             justify="begin"
             flexDir="column"
             pb={12}
+            pt="24"
         >
             <Nav />
-            <Flex mt="24" flexDir="column" maxW="4xl" gap="3" px="4">
-                {synonym.map((gr) => {
-                    return <>
-                        <Flex gap={2} flexWrap="wrap">{gr.map((x) => {
-                            return <Text cursor="pointer" onClick={() => {
-                                copyText(x)
-                            }}>{x}</Text>
+            <TableContainer>
+                <Table variant='simple' size={"md"} maxW="4xl">
+                    <TableCaption>ตารางคำไวพจน์</TableCaption>
+
+                    <Tbody>
+                        {synonym.map((gr) => {
+                            return <>
+                                <Tr>
+                                    <Td>{gr[0]}</Td>
+                                    <Td as={Flex} gap={2} flexWrap={"wrap"}>
+                                        {gr.map((x) => {
+                                            return <Text onClick={() => {
+                                                copyText(x)
+
+                                            }} cursor={"pointer"}>{x}</Text>
+
+                                        })}
+                                    </Td>
+                                </Tr>
+                            </>
                         })}
-                        </Flex>
-                        <Divider />
-                    </>
-                })}
 
+                    </Tbody>
+                </Table>
+            </TableContainer>
 
-
-
-            </Flex>
 
 
         </Flex >

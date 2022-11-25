@@ -70,6 +70,12 @@ export default function Search({ value }: { value: string }) {
                     >
                         ค้นหาคำไวพจน์
                     </Text>
+                    {/* <Text
+                        fontSize="sm"
+                        color="black"
+                    >
+                        จากคำไวพจน์ทั้งหมด 1142 คำ
+                    </Text> */}
                 </Flex>
                 <Input
                     mx="auto"
@@ -106,7 +112,11 @@ export default function Search({ value }: { value: string }) {
                 gap={2}
             >
                 {result.map((x) => {
-                    return <Text bg="white" px={3} py="0.5" rounded="md" cursor={"pointer"} onClick={() => {
+                    return <Text bg="white" transition={"all"} px={3} py="0.5" rounded="md" _hover={
+                        {
+                            bg: "gray.100"
+                        }
+                    } cursor={"pointer"} onClick={() => {
                         copyText(x)
                     }}>{x}</Text>
                 })}

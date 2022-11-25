@@ -21,7 +21,6 @@ export default function Home() {
       <Nav />
       <Search value="" />
       <Footer />
-
     </Flex >
   )
 }
