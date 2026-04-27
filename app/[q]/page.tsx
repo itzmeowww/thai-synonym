@@ -4,17 +4,30 @@ import { lookup } from "@/lib/synonym";
 import Link from "next/link";
 import { CopyButton } from "@/components/copy-button";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export const generateMetadata = async ({ params }: { params: Promise<{ q: string }> }): Promise<Metadata> => {
     const { q: rawWord } = await params;
     const word = decodeURIComponent(rawWord);
     const synonyms = lookup(word);
     const synonymList = synonyms.slice(0, 5).join(", ");
+    const description = synonyms.length > 0
+        ? `คำไวพจน์ของคำว่า "${word}" ได้แก่ ${synonymList}${synonyms.length > 5 ? " และอื่น ๆ" : ""}`
+        : `ค้นหาคำไวพจน์สำหรับคำว่า "${word}"`
     return {
         title: `คำไวพจน์ของ "${word}" | ค้นหาคำไวพจน์`,
-        description: synonyms.length > 0
-            ? `คำไวพจน์ของคำว่า "${word}" ได้แก่ ${synonymList}${synonyms.length > 5 ? " และอื่น ๆ" : ""}`
-            : `ค้นหาคำไวพจน์สำหรับคำว่า "${word}"`,
+        description,
+        openGraph: {
+            title: `คำไวพจน์: ${word}`,
+            description,
+            images: [`/og/${encodeURIComponent(word)}`],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `คำไวพจน์: ${word}`,
+            description,
+            images: [`/og/${encodeURIComponent(word)}`],
+        },
     };
 };
 
@@ -31,6 +44,8 @@ const Page = async ({ params }: { params: Promise<{ q: string }> }) => {
     const { q: rawWord } = await params;
     const word = decodeURIComponent(rawWord);
     const synonyms = lookup(word);
+
+    if (synonyms.length === 0) notFound();
 
     const jsonLd = {
         "@context": "https://schema.org",
