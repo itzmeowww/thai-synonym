@@ -1,15 +1,20 @@
-import { Geist, Geist_Mono, Figtree } from "next/font/google"
+import { Google_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import Nav from "@/components/navigation/nav";
+import { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
+import Footer from "@/components/navigation/footer";
 
-const figtree = Figtree({subsets:['latin'],variable:'--font-sans'})
+const googleSans = Google_Sans({ subsets: ['latin'], variable: '--font-sans' });
 
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+
+export const metadata: Metadata = {
+  title: "ค้นหาคำไวพจน์",
+  description: "ค้นหาคำไวพจน์ นก เต่า ต้นไม้ และอื่น ๆ อีกมากมาย",
+};
 
 export default function RootLayout({
   children,
@@ -18,12 +23,18 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="th"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", figtree.variable)}
+      className={cn("antialiased", googleSans.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Nav />
+          {children}
+          <Footer />
+          <Toaster />
+
+        </ThemeProvider>
       </body>
     </html>
   )

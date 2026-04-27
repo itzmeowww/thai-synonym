@@ -1,17 +1,58 @@
+'use client'
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
+import { SearchIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { useState } from "react"
+import { lookup } from "@/lib/synonym"
 import { Button } from "@/components/ui/button"
+import { toast } from "sonner"
 
 export default function Page() {
+  const [search, setSearch] = useState("")
+
+  const result = search ? (lookup(search) ?? []) : null
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text)
+      .then(() => toast.success("คัดลอกข้อความแล้ว"))
+      .catch(() => toast.error("คัดลอกไม่สำเร็จ"))
+  }
+
+  const renderResult = () => {
+    if (result === null) return null
+    if (result.length === 0) {
+      return <span className="text-gray-500 dark:text-gray-300">ไม่พบคำไวพจน์สำหรับคำนี้</span>
+    }
+    return result.map((word) => (
+      <Button
+        key={word}
+        variant="outline"
+        onClick={() => copyToClipboard(word)}
+      >
+        {word}
+      </Button>
+    ))
+  }
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
+    <div className="flex flex-col items-center justify-center min-h-svh px-6 bg-white dark:bg-black py-16 gap-6 lg:gap-12">
+      <h1 className="text-4xl lg:text-5xl text-center">
+        ค้นหาคำไวพจน์
+      </h1>
+      <div className="flex flex-col gap-4 w-full max-w-lg items-center">
+        <InputGroup >
+          <InputGroupInput
+            placeholder="ค้นหาคำไวพจน์ที่คุณต้องการ"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <InputGroupAddon>
+            <HugeiconsIcon icon={SearchIcon} className="w-5 h-5" />
+          </InputGroupAddon>
+        </InputGroup>
+        <span className="text-sm text-gray-500 dark:text-gray-300">กดที่ข้อความเพื่อทำการคัดลอกข้อความ</span>
+
+        <div className="w-full flex flex-row gap-2 justify-center">
+          {renderResult()}
         </div>
       </div>
     </div>
