@@ -5,18 +5,14 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { useState } from "react"
 import { lookup } from "@/lib/synonym"
 import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
+import { copyToClipboard } from "@/lib/copy"
+
 
 export default function Page() {
   const [search, setSearch] = useState("")
 
   const result = search ? lookup(search) : null
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-      .then(() => toast.success("คัดลอกข้อความแล้ว"))
-      .catch(() => toast.error("คัดลอกไม่สำเร็จ"))
-  }
 
   const renderResult = () => {
     if (result === null) return null
@@ -34,8 +30,8 @@ export default function Page() {
     ))
   }
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh px-6 bg-white dark:bg-black py-16 gap-6 lg:gap-12">
-      <h1 className="text-4xl lg:text-5xl text-center">
+    <div className="flex flex-col items-center justify-top min-h-svh px-6 bg-white dark:bg-black py-16 gap-6 lg:gap-12">
+      <h1 className="text-4xl lg:text-5xl text-center mt-36">
         ค้นหาคำไวพจน์
       </h1>
       <div className="flex flex-col gap-4 w-full max-w-lg items-center">
