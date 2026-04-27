@@ -10,7 +10,7 @@ import { toast } from "sonner"
 export default function Page() {
   const [search, setSearch] = useState("")
 
-  const result = search ? (lookup(search) ?? []) : null
+  const result = search ? lookup(search) : null
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text)
@@ -49,8 +49,9 @@ export default function Page() {
             <HugeiconsIcon icon={SearchIcon} className="w-5 h-5" />
           </InputGroupAddon>
         </InputGroup>
-        <span className="text-sm text-gray-500 dark:text-gray-300">กดที่ข้อความเพื่อทำการคัดลอกข้อความ</span>
-
+        {result && result.length > 0 && (
+          <span className="text-sm text-gray-500 dark:text-gray-300">กดที่ข้อความเพื่อทำการคัดลอกข้อความ</span>
+        )}
         <div className="w-full flex flex-row gap-2 justify-center">
           {renderResult()}
         </div>
