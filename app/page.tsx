@@ -4,8 +4,7 @@ import { SearchIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { useState } from "react"
 import { lookup } from "@/lib/synonym"
-import { Button } from "@/components/ui/button"
-import { copyToClipboard } from "@/lib/copy"
+import { CopyButton } from "@/components/copy-button"
 
 
 export default function Page() {
@@ -20,13 +19,7 @@ export default function Page() {
       return <span className="text-gray-500 dark:text-gray-300">ไม่พบคำไวพจน์สำหรับคำนี้</span>
     }
     return result.map((word) => (
-      <Button
-        key={word}
-        variant="outline"
-        onClick={() => copyToClipboard(word)}
-      >
-        {word}
-      </Button>
+      <CopyButton key={word} word={word} />
     ))
   }
   return (

@@ -7,11 +7,10 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
-import data from '@/app/data/synonym.json'
-import { Button } from "@/components/ui/button";
-import { copyToClipboard } from "@/lib/copy";
+import data from '@/app/data/synonym.json';
+import { CopyButton } from "@/components/copy-button";
 
 const Page = () => {
 
@@ -33,9 +32,8 @@ const Page = () => {
                                 <TableCell className="w-full flex gap-3 flex-wrap">
                                     {
                                         group.map((word, wordIndex) => (
-                                            <Button key={`${index}-${wordIndex}`} variant="outline" onClick={() => copyToClipboard(word)}>
-                                                {word}
-                                            </Button>
+
+                                            <CopyButton key={`${index}-${wordIndex}`} word={word} />
                                         ))
                                     }
                                 </TableCell>
