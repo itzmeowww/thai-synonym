@@ -1,50 +1,41 @@
-'use client'
-import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
-import { SearchIcon } from "@hugeicons/core-free-icons"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { useState } from "react"
-import { lookup } from "@/lib/synonym"
-import { CopyButton } from "@/components/copy-button"
+import { SearchBox } from "@/components/search-box"
+import { Metadata } from "next"
 
+const BASE_URL = 'https://thai-synonym.vercel.app'
+
+export const metadata: Metadata = {
+  title: "ค้นหาคำไวพจน์ภาษาไทย",
+  description: "เครื่องมือค้นหาคำไวพจน์ภาษาไทยออนไลน์ ค้นหาคำที่มีความหมายเหมือนกัน เช่น นก เต่า ต้นไม้ และอื่น ๆ อีกมากมาย",
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "คำไวพจน์ภาษาไทย",
+  url: BASE_URL,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${BASE_URL}/{search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+}
 
 export default function Page() {
-  const [search, setSearch] = useState("")
-
-  const result = search ? lookup(search) : null
-
-
-  const renderResult = () => {
-    if (result === null) return null
-    if (result.length === 0) {
-      return <span className="text-gray-500 dark:text-gray-300">ไม่พบคำไวพจน์สำหรับคำนี้</span>
-    }
-    return result.map((word) => (
-      <CopyButton key={word} word={word} />
-    ))
-  }
   return (
-    <div className="flex flex-col items-center justify-top min-h-svh px-6 bg-white dark:bg-black py-16 gap-6 lg:gap-12">
-      <h1 className="text-4xl lg:text-5xl text-center mt-36">
-        ค้นหาคำไวพจน์
-      </h1>
-      <div className="flex flex-col gap-4 w-full max-w-lg items-center">
-        <InputGroup >
-          <InputGroupInput
-            placeholder="ค้นหาคำไวพจน์ที่คุณต้องการ"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <InputGroupAddon>
-            <HugeiconsIcon icon={SearchIcon} className="w-5 h-5" />
-          </InputGroupAddon>
-        </InputGroup>
-        {result && result.length > 0 && (
-          <span className="text-sm text-gray-500 dark:text-gray-300">กดที่ข้อความเพื่อทำการคัดลอกข้อความ</span>
-        )}
-        <div className="w-full flex flex-row gap-2 justify-center">
-          {renderResult()}
-        </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="flex flex-col items-center justify-top min-h-svh px-6 bg-white dark:bg-black py-16 gap-6 lg:gap-12">
+        <h1 className="text-4xl lg:text-5xl text-center mt-36">
+          ค้นหาคำไวพจน์
+        </h1>
+        <SearchBox />
       </div>
-    </div>
+    </>
   )
 }
