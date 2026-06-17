@@ -30,7 +30,7 @@ const Page = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        data.map((group, index) => (
+                        data.sort((a, b) => a[0].localeCompare(b[0])).map((group, index) => (
                             <TableRow key={index}>
                                 <TableCell className="font-medium">{group[0]}</TableCell>
                                 <TableCell className="w-full flex gap-3 flex-wrap">
